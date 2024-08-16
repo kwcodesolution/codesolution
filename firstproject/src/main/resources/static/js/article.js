@@ -121,8 +121,17 @@ function httpRequest(method, url, body, success, fail) {
     });
 }
 
-const categoryButton = document.getElementById('categoryDropdown');
+const searchButton = document.getElementById('search-btn');
 
-function selectItem(item) {
-    categoryButton.innerText = item;
-}
+searchButton.addEventListener('click', function() {
+    var category = document.getElementById('categoryDropdown').innerText;
+    var solved = document.getElementById('solvedDropdown').innerText;
+    var search = document.getElementById('search-input').value;
+
+    if (searchQuery.trim() === '') {
+        location.replace(`/articles/{category}-{solved}`);
+    }
+    else {
+        location.replace(`/articles/{category}-{solved}-{search}`);
+    }
+});
