@@ -135,11 +135,3 @@ searchButton.addEventListener('click', function() {
         location.replace(`/solution/articles/{category}-{solved}-{search}`);
     }
 });
-
-const articlesButton = document.getElementById('articles-btn');
-
-articlesButton.addEventListener('click', function() {
-
-})
-
-const userinfoButton = document.getElementById('userinfo-btn');
