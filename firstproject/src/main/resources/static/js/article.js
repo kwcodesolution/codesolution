@@ -129,9 +129,17 @@ searchButton.addEventListener('click', function() {
     var search = document.getElementById('search-input').value;
 
     if (searchQuery.trim() === '') {
-        location.replace(`/articles/{category}-{solved}`);
+        location.replace(`/solution/articles/{category}-{solved}`);
     }
     else {
-        location.replace(`/articles/{category}-{solved}-{search}`);
+        location.replace(`/solution/articles/{category}-{solved}-{search}`);
     }
 });
+
+const articlesButton = document.getElementById('articles-btn');
+
+articlesButton.addEventListener('click', function() {
+
+})
+
+const userinfoButton = document.getElementById('userinfo-btn');
