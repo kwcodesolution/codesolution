@@ -60,7 +60,24 @@ if (createButton) {
             location.replace('/articles');
         };
 
-        httpRequest('POST','/api/articles', body, success, fail)
+        httpRequest('POST',`/api/articles`, body, success, fail)
+    });
+}
+
+const searchButton = document.getElementById('search-btn');
+
+if (searchButton){
+    searchButton.addEventListener('click', function() {
+        var category = document.getElementById('categoryDropdown').innerText;
+        var solved = document.getElementById('solvedDropdown').innerText;
+        var search = document.getElementById('search-input').value;
+
+        if (searchQuery.trim() === '') {
+            location.replace(`/solution/articles/{category}-{solved}`);
+        }
+        else {
+            location.replace(`/solution/articles/{category}-{solved}-{search}`);
+        }
     });
 }
 
@@ -120,18 +137,3 @@ function httpRequest(method, url, body, success, fail) {
         }
     });
 }
-
-const searchButton = document.getElementById('search-btn');
-
-searchButton.addEventListener('click', function() {
-    var category = document.getElementById('categoryDropdown').innerText;
-    var solved = document.getElementById('solvedDropdown').innerText;
-    var search = document.getElementById('search-input').value;
-
-    if (searchQuery.trim() === '') {
-        location.replace(`/solution/articles/{category}-{solved}`);
-    }
-    else {
-        location.replace(`/solution/articles/{category}-{solved}-{search}`);
-    }
-});
